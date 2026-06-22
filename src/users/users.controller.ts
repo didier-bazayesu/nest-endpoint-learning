@@ -9,9 +9,9 @@ import {
   Post,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDto } from './dto/createUser.dto';
-import { UsersService } from './users.service';
-import { UpdateUserDto } from './dto/updateUser.dto';
+import { UsersService } from './users.service.js';
+import { CreateUserDto } from './dto/createUser.dto.js';
+import { UpdateUserDto } from './dto/updateUser.dto.js';
 
 @Controller('users')
 export class UsersController {

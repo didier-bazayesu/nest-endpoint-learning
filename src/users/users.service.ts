@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { mockUsers } from './mock/users.mock';
-import { CreateUserDto } from './dto/createUser.dto';
-import { UpdateUserDto } from './dto/updateUser.dto';
+import { mockUsers } from './mock/users.mock.js';
+import { CreateUserDto } from './dto/createUser.dto.js';
+import { UpdateUserDto } from './dto/updateUser.dto.js';
 import { NotFoundException } from '@nestjs/common';
-import { throwError } from 'rxjs';
 
 @Injectable()
 export class UsersService {
