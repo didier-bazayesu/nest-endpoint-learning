@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { EmployeesService } from './employees.service.js';
 import { Prisma, Role } from '../../generated/prisma/client.js';
+import { SkipThrottle, Throttle } from '@nestjs/throttler';
 
 @Controller('employees')
 export class EmployeesController {
@@ -25,6 +26,7 @@ export class EmployeesController {
     return this.employeesService.findAll(role);
   }
 
+  @Throttle({ short: { ttl: 1000, limit: 1 } })
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.employeesService.findOne(+id);

@@ -6,14 +6,19 @@ import { UsersModule } from './users/users.module.js';
 import { EmployeesModule } from './employees/employees.module.js';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { MyLoggerModule } from './my-logger/my-logger.module';
 @Module({
   imports: [
     UsersModule,
     DatabaseModule,
     EmployeesModule,
     ThrottlerModule.forRoot({
-      throttlers: [{ ttl: 6000, limit: 3 }],
+      throttlers: [
+        { name: 'short', ttl: 6000, limit: 3 },
+        { name: 'long', ttl: 60000, limit: 10 },
+      ],
     }),
+    MyLoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
