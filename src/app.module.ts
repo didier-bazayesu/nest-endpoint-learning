@@ -6,7 +6,7 @@ import { UsersModule } from './users/users.module.js';
 import { EmployeesModule } from './employees/employees.module.js';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-import { MyLoggerModule } from './my-logger/my-logger.module';
+import { MyLoggerModule } from './my-logger/my-logger.module.js';
 @Module({
   imports: [
     UsersModule,
